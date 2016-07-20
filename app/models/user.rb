@@ -1,19 +1,20 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  validates :email, presence: true
+  validates :display_name, presence: true, uniqueness: true
+  validates :email, presence:true, uniqueness: true
   validates :password, presence: true
 
   validate :password_must_be_longer_than_six_characters
 
   def password
-    @password ||= BCrypt::Password.new(encrypted_password)
+    @password ||= BCrypt::Password.new(hashed_password)
   end
 
   def password=(provided_string)
     @plaintext = provided_string
-    hashed_password = BCrypt::Password.create(provided_string)
-    self.encrypted_password = hashed_password
+    new_password = BCrypt::Password.create(provided_string)
+    self.hashed_password = new_password
   end
 
   def authenticate(input_password)
