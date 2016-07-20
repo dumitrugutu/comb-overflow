@@ -2,8 +2,14 @@
   <h2>Questions</h2>
 
   <ul>
-    <% Question.all.each do |question| %>
-      <li><a href="/channels/<%= "#{question.id}" %>"><%= question.content %></a></li>
+    <% .all.each do |question| %>
+      <li>Question
+        <form>
+          <button action="/vote" method="post" type="submit" name="up">Upvote</button>
+
+          <button action="/vote" method="post" type="submit" name="down">Downvote</button>
+        </form>
+        <a href="/channels/<%= "#{question.id}" %>"><%= question.content %></a></li>
     <% end %>
   </ul>
 
