@@ -7,3 +7,10 @@
   box-sizing: border-box;
 }
 
+blockquote#answer {
+  border: 1px solid;
+  border-color: gray;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 50%;
+}
