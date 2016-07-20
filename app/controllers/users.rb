@@ -4,7 +4,6 @@ end
 
 post '/users' do
   user = User.new(params[:user])
-
   if user.save
     session[:user_id] = user.id
     redirect '/'
@@ -14,8 +13,4 @@ post '/users' do
   end
 end
 
-delete '/logout' do
-  session[:user_id] = nil
-  redirect '/'
-end
 

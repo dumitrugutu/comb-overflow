@@ -1,6 +1,6 @@
 # Team: Comb-Overflow
 
-## Collaborators: **
+## Collaborators:
 * Alex Stevenson
 * Dumitru Gutu
 * Robert Washington
