@@ -2,12 +2,16 @@
   <h2>Questions</h2>
 
   <ul>
-    <% .all.each do |question| %>
-      <li>Question
-        <form>
-          <button action="/vote" method="post" type="submit" name="up">Upvote</button>
-
-          <button action="/vote" method="post" type="submit" name="down">Downvote</button>
+    <!-- ###don't access database from view -->
+    <% Question.all.each do |question| %>
+      <li>
+        <form action="/vote" method="post">
+          <input type="submit" name="upvote" class="upvote">
+          <input type="hidden" name="cast_vote" value="1">
+        </form>
+        <form action="/vote" method="post">
+          <input type="submit" name="downvote" class="downvote">
+          <input type="hidden" name="cast_vote" value="-1">
         </form>
         <a href="/channels/<%= "#{question.id}" %>"><%= question.content %></a></li>
     <% end %>

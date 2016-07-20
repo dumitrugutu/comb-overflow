@@ -3,6 +3,11 @@ get '/' do
 end
 
 post '/vote' do
-  # if up
-
+ vote = Vote.new
+ p params[:cast_vote]
+ vote.cast(params[:cast_vote])
+ # vote.save
+ p '======================================================'
+ p vote.point
+ redirect '/'
 end
