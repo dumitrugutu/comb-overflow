@@ -8,7 +8,11 @@ post '/login' do
     session[:user_id] = user.id
     redirect '/'
   else
-    @error = "Invalid credentials"
+    if user == nil
+      @error = "Sorry, we couldn't find that display name"
+    else
+      @error = "Password is incorrect!"
+    end
     erb :'users/login'
   end
 end
