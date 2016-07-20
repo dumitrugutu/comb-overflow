@@ -14,7 +14,7 @@
           <input type="hidden" name="cast_vote" value="-1">
         </form>
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
-        <a href="/users/<%= question.user.id %>"><%= User.find(question.user.id).display_name %></a></li>
+        <a href="/users/<%= question.user_id %>"><%= User.find(question.user.id).display_name %></a></li>
     <% end %>
   </ul>
 

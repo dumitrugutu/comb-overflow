@@ -14,3 +14,5 @@ post '/users' do
 end
 
 
+get '/users/:user_id' do
+end
