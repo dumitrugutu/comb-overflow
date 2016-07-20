@@ -1,8 +1,5 @@
 get '/questions/:id' do
-  puts "----------------"
-  p params
-  puts "----------------"
-
   @question = Question.find(params[:id])
+  @answers = @question.answers
   erb :'questions/show'
 end

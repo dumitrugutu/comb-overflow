@@ -1,1 +1,16 @@
+<h2><%= @question.content %></h2>
 
+<% @answers.each do |answer| %>
+  <blockquote id="answer">
+    <%= answer.content %>
+    <br>
+    <a href="/answers/<%= answer.id %>/comments">comment</a>
+  </blockquote>
+<% end %>
+
+<h3>Answer:</h3>
+<form action="/answers" method="post">
+  <textarea name="answer"></textarea>
+  <br>
+  <input type="submit" value="Submit">
+</form>
