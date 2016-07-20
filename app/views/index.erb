@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Questions</h2>
+
+  <ul>
+    <% Question.all.each do |question| %>
+      <li><a href="/channels/<%= "#{question.id}" %>"><%= question.content %></a></li>
+    <% end %>
+  </ul>
+
+  <p><a href="/">Home</a></p>
+</div>
