@@ -11,7 +11,7 @@ post '/login' do
     if user == nil
       @error = "Sorry, we couldn't find that display name"
     else
-      @error = "Password is incorrect!"
+      @error = "Password for #{user.display_name} is incorrect!"
     end
     erb :'users/login'
   end
