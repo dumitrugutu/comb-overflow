@@ -7,5 +7,5 @@ end
 end
 
 25.times do
-  Answer.create(content: Faker::Hipster.sentence, answerer: User.find(rand(1..10)), question: Question.find(rand(1..25)))
+  Answer.create(content: Faker::Hipster.sentence, user: User.find(rand(1..10)), question: Question.find(rand(1..25)))
 end

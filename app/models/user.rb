@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
 
   validate :password_must_be_longer_than_six_characters
 
+  has_many :questions
+  has_many :answers
+  has_many :comments
+  has_many :votes
+
   def password
     @password ||= BCrypt::Password.new(hashed_password)
   end
