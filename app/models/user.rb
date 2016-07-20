@@ -1,7 +1,6 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  has_many :votes
 
   validates :display_name, presence: true, uniqueness: true
   validates :email, presence:true, uniqueness: true
