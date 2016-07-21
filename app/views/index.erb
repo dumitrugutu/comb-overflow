@@ -7,7 +7,7 @@
     <% @questions.each do |question| %>
       <%= vote_count(question) %>
       <li>
-        <form action="votes/<%= question.id %>" method="post">
+        <form action="questions/votes/<%= question.id %>" method="post">
           <input type="submit" name="upvote" class="upvote" value="upvote">
           <input type="hidden" name="cast_vote" value="1">
           <input type="hidden" name="votable_type" value="Question">
@@ -16,7 +16,7 @@
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
         <span>created <%= question.age %> ago by</span>
 
-        <form action="/votes/<%= question.id %>" method="post">
+        <form action="questions/votes/<%= question.id %>" method="post">
           <input type="submit" name="downvote" class="downvote" value="downvote">
           <input type="hidden" name="cast_vote" value="-1">
           <input type="hidden" name="votable_type" value="Question">

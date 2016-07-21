@@ -23,7 +23,6 @@ end
 
 delete '/questions/:id' do
   question = Question.find(params[:id])
-  p "I got here!!----------------------------------------"
   if logged_in? && (current_user == question.user)
     question.destroy
   end
