@@ -9,4 +9,5 @@ class Vote < ActiveRecord::Base
     self.point += form_vote.to_i
     # Vote.save
   end
+
 end

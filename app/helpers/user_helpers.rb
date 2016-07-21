@@ -4,6 +4,10 @@ helpers do
   end
 
   def logged_in?
-    current_user != nil
+    session[:user_id] != nil
+  end
+
+  def authenticate!
+  redirect '/login' unless logged_in?
   end
 end
