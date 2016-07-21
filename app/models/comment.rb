@@ -1,5 +1,3 @@
-require 'action_view'
-
 class Comment < ActiveRecord::Base
 include ActionView::Helpers::DateHelper
   validates :content, presence: true
