@@ -3,6 +3,7 @@
 
   <ul>
     <!-- ###don't access database from view -->
+    <!-- @questions.reverse -->
     <% @questions.each do |question| %>
       <li>
         <form action="/vote" method="post">
@@ -14,7 +15,7 @@
           <input type="hidden" name="cast_vote" value="-1">
         </form>
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
-        <span>created<%= question.age %>ago</span>
+        <span>created <%= question.age %> ago by</span>
         <a href="/users/<%= question.user_id %>"><%= question.display_name %></a>
 
       </li>
