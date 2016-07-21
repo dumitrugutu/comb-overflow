@@ -21,7 +21,7 @@
 
       <%= vote_count(answer) %>
 
-      <form action="votes/<%= answer.id %>" method="post">
+      <form action="/answers/<%= answer.id %>/votes" method="post">
         <input type="submit" name="upvote" class="upvote" value="upvote">
         <input type="hidden" name="cast_vote" value="1">
         <input type="hidden" name="votable_type" value="Answer">
@@ -31,7 +31,7 @@
       <span>created <%= answer.age %> ago by</span>
       <a href="/users/<%= answer.user_id %>"><%= answer.display_name %></a><br>
 
-      <form action="/votes/<%= answer.id %>" method="post">
+      <form action="/answers/<%= answer.id %>/votes" method="post">
         <input type="submit" name="downvote" class="downvote" value="downvote">
         <input type="hidden" name="cast_vote" value="-1">
         <input type="hidden" name="votable_type" value="Answer">
