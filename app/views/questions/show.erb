@@ -18,8 +18,9 @@
 <h4>answers:</h4>
   <% @answers.each do |answer| %>
     <blockquote id="answer">
-      <%= answer.content %>
-      <br>
+      <%= answer.content %><br>
+      <span>created <%= answer.age %> ago by</span>
+      <a href="/users/<%= answer.user_id %>"><%= answer.display_name %></a><br>
       <a href="/answers/<%= answer.id %>/comments/new">comment</a>
       <% if answer.comments %>
       <h4>comments:</h4>
@@ -27,7 +28,7 @@
           <% answer.comments.each do |comment| %>
             <li><%= comment.content %></li>
             <span>created <%= comment.age %> ago by</span>
-      <a href="/users/<%= comment.user_id %>"><%= comment.display_name %></a><br>
+            <a href="/users/<%= comment.user_id %>"><%= comment.display_name %></a><br>
           <% end %>
         </ul>
       <% end %>
