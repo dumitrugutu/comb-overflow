@@ -15,6 +15,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'bcrypt'
 gem 'faker', github: 'stympy/faker'
+gem 'actionview'
 
 group :test do
   gem 'shoulda-matchers'
