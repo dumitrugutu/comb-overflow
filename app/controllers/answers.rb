@@ -10,7 +10,6 @@ post '/answers/:id/comments' do
 end
 
 post '/answers/:id/votes' do
-
   authenticate!
   answer = Answer.find(params[:id])
   question = Question.find(answer.question_id)
@@ -19,3 +18,17 @@ post '/answers/:id/votes' do
   redirect "/questions/#{question.id}"
 end
 
+post '/answers/questions/:id' do
+  @question = Question.find_by(id: params[:id])
+  if logged_in?
+    answer = Answer.new(content: params[:answer], user_id: current_user.id, question_id: @question.id)
+    answer.save
+    if answer.valid?
+      @question.answers << answer
+      redirect "/questions/#{@question.id}"
+    else
+      @error = "Your answer sucked potatoe juice!"
+      erb :'questions/show'
+    end
+  end
+end
