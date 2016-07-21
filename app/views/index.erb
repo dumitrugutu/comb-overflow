@@ -5,7 +5,7 @@
     <!-- ###don't access database from view -->
     <!-- @questions.reverse -->
     <% @questions.each do |question| %>
-      <%= question.cast %>
+      <%= question.votes.count %>
       <li>
         <form action="votes/<%= question.id %>" method="post">
           <input type="submit" name="upvote" class="upvote" value="upvote">
