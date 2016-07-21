@@ -22,6 +22,11 @@ post '/questions/:id/votes' do
   vote.save
 end
 
+get '/questions/:id/edit' do
+  @question = Question.find_by(id:params[:id])
+  erb :'questions/edit'
+end
+
 put '/questions/:id/edit' do
   update_question = Question.find(params[:id])
   update_question.update_attributes(content: params[:content])
