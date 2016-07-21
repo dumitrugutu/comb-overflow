@@ -1,5 +1,8 @@
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @answers = @question.answers
+  # p @question
+  if @question.answers
+    @answers = @question.answers
+  end
   erb :'questions/show'
 end
