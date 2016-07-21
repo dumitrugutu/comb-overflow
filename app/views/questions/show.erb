@@ -1,12 +1,14 @@
 <h2><%= @question.content %></h2>
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 
-<% @answers.each do |answer| %>
-  <blockquote id="answer">
-    <%= answer.content %>
-    <br>
-    <a href="/answers/<%= answer.id %>/comments/new">comment</a>
-  </blockquote>
+<% if @answers %>
+  <% @answers.each do |answer| %>
+    <blockquote id="answer">
+      <%= answer.content %>
+      <br>
+      <a href="/answers/<%= answer.id %>/comments/new">comment</a>
+    </blockquote>
+  <% end %>
 <% end %>
 
 <h3>Answer:</h3>
