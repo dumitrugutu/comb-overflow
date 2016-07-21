@@ -3,6 +3,17 @@
 <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 
+<form action="/questions/<%= @question.id %>/edit" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="content" value="<%= @question.content %>">
+  <input type="submit" value="edit">
+</form>
+
+<form action="/questions/<%= @question.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+
 <h4>comments:</h4>
 <% if @question.comments %>
   <ul>
