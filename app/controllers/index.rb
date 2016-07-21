@@ -9,3 +9,5 @@ post '/questions/votes/:id' do
   vote.save
   redirect '/'
 end
+
+

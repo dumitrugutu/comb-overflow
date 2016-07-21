@@ -1,4 +1,18 @@
+<%= vote_count(@question) %>
+<form action="/questions/<%= @question.id %>/votes" method="post">
+  <input type="submit" name="upvote" class="upvote" value="upvote">
+  <input type="hidden" name="cast_vote" value="1">
+  <input type="hidden" name="votable_type" value="Question">
+</form>
+
 <h2><%= @question.content %></h2>
+
+<form action="/questions/<%= @question.id %>/votes" method="post">
+  <input type="submit" name="downvote" class="downvote" value="downvote">
+  <input type="hidden" name="cast_vote" value="-1">
+  <input type="hidden" name="votable_type" value="Question">
+</form>
+
 <span>created <%= @question.age %> ago by</span>
 <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
