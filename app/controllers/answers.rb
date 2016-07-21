@@ -10,6 +10,7 @@ post '/answers/:id/comments' do
 end
 
 post '/answers/:id/votes' do
+
   authenticate!
   answer = Answer.find(params[:id])
   question = Question.find(answer.question_id)
@@ -17,3 +18,4 @@ post '/answers/:id/votes' do
   vote.save
   redirect "/questions/#{question.id}"
 end
+
