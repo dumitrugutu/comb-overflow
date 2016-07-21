@@ -5,17 +5,22 @@
     <!-- ###don't access database from view -->
     <!-- @questions.reverse -->
     <% @questions.each do |question| %>
+      <%= question.votes.count %>
       <li>
-        <form action="/vote" method="post">
-          <input type="submit" name="upvote" class="upvote">
+        <form action="votes/<%= question.id %>" method="post">
+          <input type="submit" name="upvote" class="upvote" value="upvote">
           <input type="hidden" name="cast_vote" value="1">
+          <input type="hidden" name="votable_type" value="Question">
         </form>
-        <form action="/vote" method="post">
-          <input type="submit" name="downvote" class="downvote">
-          <input type="hidden" name="cast_vote" value="-1">
-        </form>
+
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
         <span>created <%= question.age %> ago by</span>
+
+        <form action="/votes/<%= question.id %>" method="post">
+          <input type="submit" name="downvote" class="downvote" value="downvote">
+          <input type="hidden" name="cast_vote" value="-1">
+          <input type="hidden" name="votable_type" value="Question">
+        </form>
         <a href="/users/<%= question.user_id %>"><%= question.display_name %></a>
 
       </li>

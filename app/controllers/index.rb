@@ -3,10 +3,9 @@ get '/' do
   erb :index
 end
 
-post '/vote' do
- vote = Vote.new
- p params[:cast_vote]
- vote.cast(params[:cast_vote])
- #Vote.save
- redirect '/'
+post '/votes/:id' do
+
+  vote = Vote.new(point: params[:cast_vote], votable_id: params[:id], votable_type: params[:votable_type], user_id: session[:user_id])
+  vote.save
+  redirect '/'
 end
