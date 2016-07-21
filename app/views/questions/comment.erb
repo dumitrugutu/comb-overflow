@@ -1,4 +1,5 @@
-<form action="/questions/:id/comments" method="post">
+<form action="/questions/<%= @question.id %>/comments" method="post">
   <textarea name="comment"></textarea>
+  <br>
   <input type="submit" value="Submit"/>
 </form>
