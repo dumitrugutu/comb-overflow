@@ -1,5 +1,3 @@
-require 'action_view'
-
 class Question < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   validates :content, presence: true
