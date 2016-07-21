@@ -17,13 +17,15 @@
 <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 
-<a href="/questions/<%= @question.id %>/edit">edit</a>
 
+<% if current_user && current_user.id == @question.user_id %>
+  <form action="/questions/<%= @question.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
 
-<form action="/questions/<%= @question.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-</form>
+  <a href="/questions/<%= @question.id %>/edit">edit</a>
+<% end %>
 
 <h4>comments:</h4>
 <% if @question.comments %>
@@ -74,8 +76,12 @@
   <% end %>
 <% end %>
 
+<% if @error %>
+  <p><%= @error %></p>
+<% end %>
+
 <h3>Answer:</h3>
-<form action="/answers" method="post">
+<form action="/answers/questions/<%= @question.id %>" method="post">
   <textarea name="answer"></textarea>
   <br>
   <input type="submit" value="Submit">
