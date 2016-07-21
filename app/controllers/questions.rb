@@ -1,3 +1,21 @@
+get '/questions/new' do
+  authenticate!
+  erb :'questions/new'
+end
+
+post '/questions' do
+  if logged_in?
+    question = Question.new(content: params[:question],user_id: current_user.id)
+    if question.save
+      redirect '/'
+    else
+      erb :'questions/new'
+    end
+  else
+    redirect '/login'
+  end
+end
+
 get '/questions/:id' do
   @question = Question.find(params[:id])
   if @question.answers
@@ -14,7 +32,6 @@ post '/questions/:id/comments' do
   end
   redirect "/questions/#{question.id}"
 end
-
 
 post '/questions/:id/votes' do
   authenticate!
