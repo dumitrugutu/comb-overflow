@@ -3,10 +3,8 @@
   <a href="/questions/new">Ask a question!</a>
 
   <ul>
-    <!-- ###don't access database from view -->
-    <!-- @questions.reverse -->
     <% @questions.each do |question| %>
-      <p>Votes: <%= vote_count(question) %></p>
+      <p class="votes">Votes: <%= vote_count(question) %></p>
       <li class="questions">
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
         <br>
@@ -16,3 +14,5 @@
     <% end %>
   </ul>
 </div>
+
+
