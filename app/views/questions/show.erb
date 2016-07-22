@@ -5,7 +5,11 @@
   <input type="hidden" name="votable_type" value="Question">
 </form>
 
-<h2><%= @question.content %></h2>
+<div class="display-question">
+  <h2 class="question-title"><%= @question.content %></h2>
+  <span class="created-question">created <%= @question.age %> ago<br>by</span>
+  <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
+</div>
 
 <form action="/questions/<%= @question.id %>/votes" method="post">
   <input type="submit" name="downvote" class="downvote" value="downvote">
@@ -13,8 +17,6 @@
   <input type="hidden" name="votable_type" value="Question">
 </form>
 
-<span>created <%= @question.age %> ago by</span>
-<a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 
 <a href="/questions/<%= @question.id %>/edit">edit</a>
