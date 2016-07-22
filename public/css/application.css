@@ -8,11 +8,26 @@
 }
 
 blockquote#answer {
+  background-color: #e0f2f1;
   border: 1px solid;
   border-color: gray;
   margin: auto;
   margin-bottom: 10px;
+  padding: 20px;
   width: 50%;
+}
+
+#vote_count {
+  margin-left: 30px;
+  font-size: 1.5em;
+  color: #333399;
+}
+
+#answer_type {
+  color: #333399;
+  display: inline-block;
+  margin: auto;
+  padding: 20px, 10px, 10px, 150px;
 }
 
 div.logo-container {
@@ -76,4 +91,9 @@ div.display-question {
 h2.question-title {
   color: #558C89;
   text-align: center;
+}
+
+#answer_submit {
+  margin-left: 30px;
+  margin-bottom: 40px;
 }

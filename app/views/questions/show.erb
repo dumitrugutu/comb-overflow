@@ -1,4 +1,7 @@
-<%= vote_count(@question) %>
+<p id="vote_count">
+<%= vote_count(@question) %> :votes
+</p>
+
 <form action="/questions/<%= @question.id %>/votes" method="post">
   <input type="submit" name="upvote" class="upvote" value="upvote">
   <input type="hidden" name="cast_vote" value="1">
@@ -52,18 +55,20 @@
         <input type="hidden" name="cast_vote" value="1">
         <input type="hidden" name="votable_type" value="Answer">
       </form>
+      <div id="answer_type">
+        <%= answer.content %><br>
+        <span>created <%= answer.age %> ago by</span>
+        <a href="/users/<%= answer.user_id %>"><%= answer.  display_user %></a><br>
+      </div>
 
-      <%= answer.content %><br>
-      <span>created <%= answer.age %> ago by</span>
-      <a href="/users/<%= answer.user_id %>"><%= answer.display_user %></a><br>
+        <form action="/answers/<%= answer.id %>/votes" method=  "post">
+          <input type="submit" name="downvote" class="downvote  " value="downvote">
+          <input type="hidden" name="cast_vote" value="-1">
+          <input type="hidden" name="votable_type" value="  Answer">
+        </form>
 
-      <form action="/answers/<%= answer.id %>/votes" method="post">
-        <input type="submit" name="downvote" class="downvote" value="downvote">
-        <input type="hidden" name="cast_vote" value="-1">
-        <input type="hidden" name="votable_type" value="Answer">
-      </form>
+        <a href="/answers/<%= answer.id %>/comments/new"> comment</a>
 
-      <a href="/answers/<%= answer.id %>/comments/new">comment</a>
 
       <% if answer.comments %>
       <h4>comments:</h4>
@@ -83,9 +88,11 @@
   <p><%= @error %></p>
 <% end %>
 
-<h3>Answer:</h3>
-<form action="/answers/questions/<%= @question.id %>" method="post">
-  <textarea name="answer"></textarea>
-  <br>
-  <input type="submit" value="Submit">
-</form>
+<div id="answer_submit">
+  <h3>Answer:</h3>
+  <form action="/answers/questions/<%= @question.id %>" method  ="post">
+    <textarea name="answer"></textarea>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
