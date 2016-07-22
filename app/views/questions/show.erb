@@ -1,91 +1,116 @@
-<%= vote_count(@question) %>
-<form action="/questions/<%= @question.id %>/votes" method="post">
-  <input type="submit" name="upvote" class="upvote" value="upvote">
-  <input type="hidden" name="cast_vote" value="1">
-  <input type="hidden" name="votable_type" value="Question">
-</form>
+<div class="show">
 
-<div class="display-question">
-  <h2 class="question-title"><%= @question.content %></h2>
-  <span class="created-question">created <%= @question.age %> ago<br>by</span>
-  <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
-</div>
+<div class="question-block">
 
-<form action="/questions/<%= @question.id %>/votes" method="post">
-  <input type="submit" name="downvote" class="downvote" value="downvote">
-  <input type="hidden" name="cast_vote" value="-1">
-  <input type="hidden" name="votable_type" value="Question">
-</form>
+  <div class="vote-block">
 
-<a href="/questions/<%= @question.id %>/comments/new">comment</a>
-
-
-<% if current_user && current_user.id == @question.user_id %>
-  <form action="/questions/<%= @question.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete">
-  </form>
-
-  <a href="/questions/<%= @question.id %>/edit">edit</a>
-<% end %>
-
-<h4>comments:</h4>
-<% if @question.comments %>
-  <ul>
-    <% @question.comments.each do |comment| %>
-      <li><%= comment.content %></li>
-      <span>created <%= comment.age %> ago by</span>
-      <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if @answers %>
-<h4>answers:</h4>
-  <% @answers.each do |answer| %>
-    <blockquote id="answer">
-
-      <%= vote_count(answer) %>
-
-      <form action="/answers/<%= answer.id %>/votes" method="post">
+    <div>
+      <form action="/questions/<%= @question.id %>/votes" method="post" class="vote-button">
         <input type="submit" name="upvote" class="upvote" value="upvote">
         <input type="hidden" name="cast_vote" value="1">
-        <input type="hidden" name="votable_type" value="Answer">
+        <input type="hidden" name="votable_type" value="Question">
       </form>
-
-      <%= answer.content %><br>
-      <span>created <%= answer.age %> ago by</span>
-      <a href="/users/<%= answer.user_id %>"><%= answer.display_user %></a><br>
-
-      <form action="/answers/<%= answer.id %>/votes" method="post">
+    </div>
+    <div>
+        <%= vote_count(@question) %>
+      </div>
+    <div>
+      <form action="/questions/<%= @question.id %>/votes" method="post" class="vote-button">
         <input type="submit" name="downvote" class="downvote" value="downvote">
         <input type="hidden" name="cast_vote" value="-1">
-        <input type="hidden" name="votable_type" value="Answer">
+        <input type="hidden" name="votable_type" value="Question">
+      </form>
+      </div
+  </div>
+
+  <div class="display-question">
+      <h2 class="question-title"><%= @question.content %></h2>
+      <span class="created-question">created <%= @question.age %> ago<br>by</span>
+      <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
+
+    <a href="/questions/<%= @question.id %>/comments/new">comment</a>
+
+
+
+    <% if current_user && current_user.id == @question.user_id %>
+      <form action="/questions/<%= @question.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
       </form>
 
-      <a href="/answers/<%= answer.id %>/comments/new">comment</a>
+      <a href="/questions/<%= @question.id %>/edit">edit</a>
+    <% end %>
+    </div>
+</div>
 
-      <% if answer.comments %>
-      <h4>comments:</h4>
-        <ul>
-          <% answer.comments.each do |comment| %>
-            <li><%= comment.content %></li>
-            <span>created <%= comment.age %> ago by </span>
-            <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
-          <% end %>
-        </ul>
+  <h4>comments:</h4>
+  <% if @question.comments %>
+    <ul>
+      <% @question.comments.each do |comment| %>
+        <li><%= comment.content %></li>
+        <span>created <%= comment.age %> ago by</span>
+        <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
       <% end %>
-    </blockquote>
+    </ul>
   <% end %>
-<% end %>
 
-<% if @error %>
-  <p><%= @error %></p>
-<% end %>
 
-<h3>Answer:</h3>
-<form action="/answers/questions/<%= @question.id %>" method="post">
-  <textarea name="answer"></textarea>
-  <br>
-  <input type="submit" value="Submit">
-</form>
+  <% if @answers %>
+  <h4>answers:</h4>
+    <% @answers.each do |answer| %>
+      <blockquote id="answer">
+
+        <div class="vote-block">
+
+          <div>
+              <form action="/answers/<%= answer.id %>/votes" method="post" class="vote-button">
+                <input type="submit" name="upvote" class="upvote" value="upvote">
+                <input type="hidden" name="cast_vote" value="1">
+                <input type="hidden" name="votable_type" value="Answer">
+              </form>
+            </div>
+            <div>
+              <%= vote_count(answer) %>
+            </div>
+              <div>
+              <form action="/answers/<%= answer.id %>/votes" method="post" class="vote-button">
+                <input type="submit" name="downvote" class="downvote" value="downvote">
+                <input type="hidden" name="cast_vote" value="-1">
+                <input type="hidden" name="votable_type" value="Answer">
+              </form>
+            </div>
+          </div>
+
+        <%= answer.content %><br>
+        <span>created <%= answer.age %> ago by</span>
+        <a href="/users/<%= answer.user_id %>"><%= answer.display_user %></a><br>
+
+
+
+        <a href="/answers/<%= answer.id %>/comments/new">comment</a>
+
+        <% if answer.comments %>
+        <h4>comments:</h4>
+          <ul>
+            <% answer.comments.each do |comment| %>
+              <li><%= comment.content %></li>
+              <span>created <%= comment.age %> ago by </span>
+              <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
+            <% end %>
+          </ul>
+        <% end %>
+      </blockquote>
+    <% end %>
+  <% end %>
+
+  <% if @error %>
+    <p><%= @error %></p>
+  <% end %>
+
+  <h3>Answer:</h3>
+  <form action="/answers/questions/<%= @question.id %>" method="post">
+    <textarea name="answer"></textarea>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</div>

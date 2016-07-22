@@ -9,20 +9,23 @@
 
 </head>
 <body>
-  <div class="home">
-    <% if logged_in? %>
-      <a href="/">home</a> |
-      <a href="/logout">log out</a>
-    <% else %>
-      <a href="/">home</a> |
-      <a href="/login">log in</a> |
-      <a href="/users/new">register</a>
-    <% end %><br>
+  <div class="header-bar">
+    <div class="home">
+      <% if logged_in? %>
+        <a href="/">home</a> |
+        <a href="/logout">log out</a>
+      <% else %>
+        <a href="/">home</a> |
+        <a href="/login">log in</a> |
+        <a href="/users/new">register</a>
+      <% end %><br>
+    </div>
+
+    <div class="logo-container">
+      <h2 class="overflow-logo">Comb Overflow</h2>
+    </div>
   </div>
 
-<div class="logo-container">
-  <h2 class="overflow-logo">Comb Overflow</h2>
-</div>
-      <%= yield %>
+    <%= yield %>
 </body>
 </html>
