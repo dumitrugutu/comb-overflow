@@ -26,8 +26,7 @@
   <div class="display-question">
       <h2 class="question-title"><%= @question.content %></h2>
       <span class="created-question">created <%= @question.age %> ago<br>by</span>
-      <a href="/users/<%= @question.user_id %>"><%= @question.display_name %></a><br>
-
+      <a href="/users/<%= @question.user_id %>" class="display-name"><%= @question.display_name %></a><br>
     <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 
 
@@ -40,7 +39,7 @@
 
       <a href="/questions/<%= @question.id %>/edit">edit</a>
     <% end %>
-    </div>
+  </div>
 </div>
 
   <h4>comments:</h4>
@@ -49,7 +48,7 @@
       <% @question.comments.each do |comment| %>
         <li><%= comment.content %></li>
         <span>created <%= comment.age %> ago by</span>
-        <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
+        <a href="/users/<%= comment.user_id %>" class="display-name"><%= comment.display_user %></a><br>
       <% end %>
     </ul>
   <% end %>
@@ -84,7 +83,7 @@
         <%= answer.content %><br>
         </p>
         <span>created <%= answer.age %> ago by</span>
-        <a href="/users/<%= answer.user_id %>"><%= answer.display_user %></a><br>
+        <a href="/users/<%= answer.user_id %>" class="display-name"><%= answer.display_user %></a><br>
 
 
 
@@ -96,7 +95,7 @@
             <% answer.comments.each do |comment| %>
               <li><%= comment.content %></li>
               <span>created <%= comment.age %> ago by </span>
-              <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
+              <a href="/users/<%= comment.user_id %>" class="display-name"><%= comment.display_user %></a><br>
             <% end %>
           </ul>
         <% end %>

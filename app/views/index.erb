@@ -1,7 +1,9 @@
 <div class="question-entries">
 
-  <a class="new-question" href="/questions/new">Ask a question!</a>
-
+  <div class="new-question-block">
+    <a class="new-question" href="/questions/new"><img src="/images/question.jpg" alt="Ask a question" class="question-pic"/></a>
+    <p class="new-question"> Ask a qustion</p>
+  </div>
   <ul>
     <% @questions.each do |question| %>
 
@@ -10,10 +12,10 @@
           <p><%= vote_count(question) %></p>
           <p>Votes</p>
         </div>
-        <a href="/questions/<%= question.id %>"><%= question.content %></a>
+        <a href="/questions/<%= question.id %>" class="question"><%= question.content %></a>
         <br>
         <span class="created">created <%= question.age %> ago<br>by</span>
-        <a href="/users/<%= question.user_id %>"><%= question.display_name %></a>
+        <a href="/users/<%= question.user_id %>" class="display-name"><%= question.display_name %></a>
       </li>
     <% end %>
   </ul>

@@ -109,7 +109,7 @@ div.form {
  border: 1px solid red;
  display: inline-block;
  text-align: center;
- margin-left: 45%;
+ margin-left: auto;;
  padding: 60px;
  margin-top: 20px;
  background-color: #e0f2f1;
@@ -118,6 +118,7 @@ div.form {
  box-shadow: 4px 4px 12px #888888;
  position: relative;
  top: 259px;
+ horizontal-align:
 }
 
 form input[type=submit] {
@@ -153,26 +154,73 @@ div.question-entries {
 }
 
 a.new-question {
-  position: fixed;
-  top: 259px;
-  left: 0px;
+  background-color: #D9853B;
+  border-radius: 4px;
 }
 
 div.show {
   position: relative;
   top: 259px;
-  left: 25%;
-  float: left;
+  text-align: center;
 }
 
 div.vote-block {
-  float: left;
+  text-align: center;
+}
 
+p.new-question {
+   color: #558C89;
+   position:relative;
+   top: -10px;
+   left: 25px;
 }
 
 div.question-block {
   display: inline-block;
   vertical-align: top;
+  /*float: left;
+  clear: none;*/
+}
+
+img.question-pic {
+  max-width: 60%;
+  height:auto;
+}
+
+div.new-question-block {
+  position: fixed;
+  top: 259px;
+  left: 0px;
+}
+
+a.logo {
+  text-decoration: none;
+}
+
+a.question {
+ color: #558C89;
+ /*margin-right: 70%;
+ margin-left: 30%;*/
+ font-size: 1.5em;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+
+}
+
+a.display-name {
+ color: #558C89;
+ /*margin-right: 70%;
+ margin-left: 30%;*/
+ /*font-size: 1.5em;*/
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+
+}
+
+div.form-block {
+  text-align: center;
 }
 
 p.answer {

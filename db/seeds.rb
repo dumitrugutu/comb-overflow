@@ -1,3 +1,4 @@
+
 User.create(display_name: "Gumitru Dutu" , email: "dmt@hairstyle.com", password: "password")
 
 User.create(display_name: "Jill Wung", email: "will@gmail.com", password: "password")

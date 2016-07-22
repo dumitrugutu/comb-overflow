@@ -1,20 +1,23 @@
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <%= error %><br />
-  <% end %>
-<% end %>
+<div class="form-block">
 
-<div class="form">
-  <form action="/users" method="post">
-    <label>Register</label>
-    <br>
-    <br>
-    <br>
-    <input type="text" name="user[display_name]" placeholder="Display Name" />
-    <input type="text" name="user[email]" placeholder="  Email" />
-    <input type="password" name="user[password]" placeholder="Password">
-    <br>
-    <br>
-    <input type="submit" value="Submit"/>
-  </form>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %><br />
+    <% end %>
+  <% end %>
+
+  <div class="form">
+    <form action="/users" method="post">
+      <label>Register</label>
+      <br>
+      <br>
+      <br>
+      <input type="text" name="user[display_name]" placeholder="Display Name" />
+      <input type="text" name="user[email]" placeholder="  Email" />
+      <input type="password" name="user[password]" placeholder="Password">
+      <br>
+      <br>
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
 </div>
