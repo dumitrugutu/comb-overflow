@@ -17,6 +17,7 @@ post '/questions' do
 end
 
 get '/questions/:id' do
+  puts "HIT QUES route--------------$$$$$$$$$$$$$$$$$$$$$$$$"
   @question = Question.find(params[:id])
   if @question.answers
     @answers = @question.answers
@@ -26,7 +27,10 @@ end
 
 post '/questions/:id/comments' do
   question = Question.find(params[:id])
-  comment = Comment.new(content: params[:comment], user_id: current_user, commentable_id: question.id, commentable_type: "Question")
+  # p "***********************************"
+  # p params
+  # p current_user.id
+  comment = Comment.new(content: params[:comment], user_id: current_user.id, commentable_id: question.id, commentable_type: "Question")
   if comment.save
     question.comments << comment
   end
@@ -34,9 +38,11 @@ post '/questions/:id/comments' do
 end
 
 post '/questions/:id/votes' do
+  question = Question.find(params[:id])
   authenticate!
   vote = Vote.new(point: params[:cast_vote], votable_id: params[:id], votable_type: params[:votable_type], user_id: session[:user_id])
   vote.save
+  redirect "/questions/#{question.id}"
 end
 
 get '/questions/:id/edit' do

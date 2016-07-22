@@ -6,12 +6,16 @@ include ActionView::Helpers::DateHelper
   belongs_to :commentable, polymorphic: true
 
   # refactor so that you can only comment when logged in, need sessions and authorization
-  def display_name
-    if self.user_id == nil
-      return "anonymous"
-    else
-      User.find(self.user_id).display_name
-    end
+  def display_user
+    # if self.user_id == nil
+    #   return "anonymous"
+    # else
+    # puts "-----------------------------------------"
+    # puts "COMMENT"
+    # user =  self.user_id
+    # user = User.find(self.user_id)
+    user = User.find(self.user_id).display_name
+    user
   end
 
   def age

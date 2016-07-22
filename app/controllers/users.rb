@@ -15,4 +15,6 @@ end
 
 
 get '/users/:user_id' do
+  #for the future profile
+  redirect '/'
 end

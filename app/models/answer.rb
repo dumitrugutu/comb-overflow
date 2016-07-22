@@ -7,8 +7,11 @@ class Answer < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
-  def display_name
-    User.find(self.user.id).display_name
+  def display_user
+    # puts "-----------------------------------------"
+    # puts "ANSWER"
+    user = User.find(self.user_id).display_name
+    user
   end
 
   def age

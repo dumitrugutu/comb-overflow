@@ -35,7 +35,7 @@
     <% @question.comments.each do |comment| %>
       <li><%= comment.content %></li>
       <span>created <%= comment.age %> ago by</span>
-      <a href="/users/<%= comment.user_id %>"><%= comment.display_name %></a><br>
+      <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
     <% end %>
   </ul>
 <% end %>
@@ -55,7 +55,7 @@
 
       <%= answer.content %><br>
       <span>created <%= answer.age %> ago by</span>
-      <a href="/users/<%= answer.user_id %>"><%= answer.display_name %></a><br>
+      <a href="/users/<%= answer.user_id %>"><%= answer.display_user %></a><br>
 
       <form action="/answers/<%= answer.id %>/votes" method="post">
         <input type="submit" name="downvote" class="downvote" value="downvote">
@@ -64,13 +64,14 @@
       </form>
 
       <a href="/answers/<%= answer.id %>/comments/new">comment</a>
+
       <% if answer.comments %>
       <h4>comments:</h4>
         <ul>
           <% answer.comments.each do |comment| %>
             <li><%= comment.content %></li>
-            <span>created <%= comment.age %> ago by</span>
-            <a href="/users/<%= comment.user_id %>"><%= comment.display_name %></a><br>
+            <span>created <%= comment.age %> ago by </span>
+            <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
           <% end %>
         </ul>
       <% end %>
