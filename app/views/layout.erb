@@ -9,15 +9,20 @@
 
 </head>
 <body>
-  <% if logged_in? %>
-    <a href="/logout">log out</a> |
-    <a href="/">home</a>
-  <% else %>
-    <a href="/login">log in</a> |
-    <a href="/users/new">register</a>
-    <a href="/">home</a>
-  <% end %><br>
-      <%= yield %>
+  <div class="home">
+    <% if logged_in? %>
+      <a href="/">home</a> |
+      <a href="/logout">log out</a>
+    <% else %>
+      <a href="/">home</a> |
+      <a href="/login">log in</a> |
+      <a href="/users/new">register</a>
+    <% end %><br>
+  </div>
 
+<div class="logo-container">
+  <h2 class="overflow-logo">Comb Overflow</h2>
+</div>
+      <%= yield %>
 </body>
 </html>

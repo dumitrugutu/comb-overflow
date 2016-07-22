@@ -1,5 +1,4 @@
 <div class="container">
-  <h2>Questions</h2>
 
   <a href="/questions/new">Ask a question!</a>
 
@@ -8,9 +7,10 @@
     <!-- @questions.reverse -->
     <% @questions.each do |question| %>
       <p>Votes: <%= vote_count(question) %></p>
-      <li>
+      <li class="questions">
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
-        <span>created <%= question.age %> ago by</span>
+        <br>
+        <span class="created">created <%= question.age %> ago<br>by</span>
         <a href="/users/<%= question.user_id %>"><%= question.display_name %></a>
       </li>
     <% end %>
