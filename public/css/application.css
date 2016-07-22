@@ -101,3 +101,19 @@ form input[type=submit] {
 label {
   color: #558C89;
 }
+
+p.votes {
+  width: 50px;
+  color: #848d95;
+  /*position: absolute;*/
+  padding-left: 250px;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  margin-bottom: 8px;
+  /*text-align: center;*/
+}
+
+/*p.question-name {
+  margin-bottom: 10px;
+}*/
