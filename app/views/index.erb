@@ -3,15 +3,13 @@
   <a href="/questions/new">Ask a question!</a>
 
   <ul>
-    <!-- ###don't access database from view -->
-    <!-- @questions.reverse -->
     <% @questions.each do |question| %>
-      <p>Votes: <%= vote_count(question) %></p>
+      <p class="votes">Votes: <%= vote_count(question) %></p>
       <li class="questions">
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
         <br>
         <span class="created">created <%= question.age %> ago<br>by</span>
-        <a href="/users/<%= question.user_id %>"><%= question.display_name %></a>
+        <a class="question-name" href="/users/<%= question.user_id %>"><%= question.display_name %></a>
       </li>
     <% end %>
   </ul>
