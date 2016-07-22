@@ -1,13 +1,20 @@
-<h2>Login</h2>
-
 <div class="error">
   <% if @error %>
     <%= @error %>
   <% end %>
   <div>
 <br>
-<form action="/login" method="post">
-  <input type="text" name="display_name" placeholder="Display Name">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Submit"/>
-</form>
+
+<div class="form">
+  <form action="/login" method="post">
+    <label>Login</label>
+    <br>
+    <br>
+    <br>
+    <input type="text" name="display_name" placeholder="Display Name">
+    <input type="password" name="password" placeholder="Password">
+    <br>
+    <br>
+    <input type="submit" value="Submit"/>
+  </form>
+</div>

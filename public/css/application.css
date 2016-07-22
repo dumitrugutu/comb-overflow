@@ -77,3 +77,27 @@ h2.question-title {
   color: #558C89;
   text-align: center;
 }
+
+div.form {
+  border: 1px solid red;
+  display: inline-block;
+  text-align: center;
+  margin-left: 45%;
+  padding: 60px;
+  margin-top: 20px;
+  background-color: #e0f2f1;
+  border-radius: 4px;
+  border: 3px solid #558C89;
+  box-shadow: 4px 4px 12px #888888;
+}
+
+form input[type=submit] {
+  color: #558C89;
+  font-weight: bold;
+  background-color: #D9853B;
+  border-radius: 4px;
+}
+
+label {
+  color: #558C89;
+}
