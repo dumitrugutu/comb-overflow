@@ -1,11 +1,15 @@
-<div class="container">
+<div class="question-entries">
 
-  <a href="/questions/new">Ask a question!</a>
+  <a class="new-question" href="/questions/new">Ask a question!</a>
 
   <ul>
     <% @questions.each do |question| %>
-      <p class="votes">Votes: <%= vote_count(question) %></p>
-      <li class="questions">
+
+      <li class="question">
+        <div class="votes">
+          <p><%= vote_count(question) %></p>
+          <p>Votes</p>
+        </div>
         <a href="/questions/<%= question.id %>"><%= question.content %></a>
         <br>
         <span class="created">created <%= question.age %> ago<br>by</span>
@@ -14,5 +18,3 @@
     <% end %>
   </ul>
 </div>
-
-
