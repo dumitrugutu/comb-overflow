@@ -62,12 +62,13 @@
       </form>
 
       <a href="/answers/<%= answer.id %>/comments/new">comment</a>
+
       <% if answer.comments %>
       <h4>comments:</h4>
         <ul>
           <% answer.comments.each do |comment| %>
             <li><%= comment.content %></li>
-            <span>created <%= comment.age %> ago by</span>
+            <span>created <%= comment.age %> ago by </span>
             <a href="/users/<%= comment.user_id %>"><%= comment.display_user %></a><br>
           <% end %>
         </ul>

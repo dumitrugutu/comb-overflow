@@ -8,8 +8,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def display_user
-    puts "-----------------------------------------"
-    puts "ANSWER"
+    # puts "-----------------------------------------"
+    # puts "ANSWER"
     user = User.find(self.user_id).display_name
     user
   end

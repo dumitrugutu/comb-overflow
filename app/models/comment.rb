@@ -10,13 +10,12 @@ include ActionView::Helpers::DateHelper
     # if self.user_id == nil
     #   return "anonymous"
     # else
-    puts "-----------------------------------------"
-    puts "COMENTS"
-    p user = self.user_id
-    puts "-----------------------------------------"
-
-      User.find(self.user_id).display_name
-    # end
+    # puts "-----------------------------------------"
+    # puts "COMMENT"
+    # user =  self.user_id
+    # user = User.find(self.user_id)
+    user = User.find(self.user_id).display_name
+    user
   end
 
   def age
