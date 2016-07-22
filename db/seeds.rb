@@ -6,6 +6,13 @@ User.create(display_name: "Wobert Rashington", email: "wobert@dc.com", password:
 
 User.create(display_name: "Sleks Atevenson", email: "slacks@flax.nafta", password: "password")
 
+Question.create(content: "How does Dumitru's hair not move all day? Does he wake up like this?", user_id: 2)
+Question.create(content: "Does Rogaine work the same way for facial hair?", user_id: 2)
+Question.create(content: "What do I put in my hair to make it flow like the falls of Niagara", user_id: 2)
+Question.create(content: "If I spray painted my bald spot would people notice? Lol", user_id: 2)
+
+Answer.create(content: "Fk off buddy. Thx.", user_id: 1, question_id: 1)
+Answer.create(content: "He sleeps standing up.", user_id: 4, question_id: 1)
 
 # 10.times do
 #   User.create(display_name: Faker::Name.name , email: Faker::Internet.email, password: "password")
